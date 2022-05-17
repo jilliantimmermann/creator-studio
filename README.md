@@ -24,7 +24,9 @@ A basic overview of the project structure:
 ## Project setup
 
 ```
-// clone repo
+git clone https://github.com/shaydewael/creator-studio.git
+
+cd creator-studio
 
 npm install
 ```
