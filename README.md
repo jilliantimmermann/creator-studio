@@ -67,3 +67,10 @@ When/if in production:
 ```
 node app.js
 ```
+
+## Helpful resources
+
+- [Discord.js guide](https://discordjs.guide/#before-you-begin)
+- [Discord API documentation](https://discord.com/developers/docs/intro). The **Resources** sections have most of the API methods listed
+- [Discord.js documentation](https://discord.js.org/#/docs/main/stable/general/welcome)
+- [Getting Started Guide](https://discord.com/developers/docs/getting-started) which doesn't use `discord.js`, but it may be helpful to guide through setting up the app.
