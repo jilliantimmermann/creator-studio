@@ -1,7 +1,6 @@
 import 'dotenv/config'
 
-import { restClient } from './app.js';
-import { Routes } from 'discord-api-types/v10';
+import { DiscordRequest } from './utils.js';
 
 // Command payloads
 // See https://discord.com/developers/docs/interactions/application-commands#application-command-object
@@ -27,14 +26,24 @@ const GAME_COMMAND = {
   type: 1
 };
 
-// Register all commands
-restClient
-  .put(
-    Routes.applicationGuildCommands(
-      process.env.CLIENT_ID,
-      process.env.GUILD_ID
-    ),
-    { body: [TEST_COMMAND, GAME_COMMAND] }
-  )
-  .then(() => console.log('Successfully registered commands'))
-  .catch(console.error);
+// ...commands is arbitrary # of commands https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+async function installCommands(...commands) {
+  // Create command: https://discord.com/developers/docs/interactions/application-commands#create-global-application-command
+  const installCommandEndpoint = `/applications/${process.env.APP_ID}/commands`;
+
+  for (let c of commands) {
+    // install command
+    try {
+      await DiscordRequest(installCommandEndpoint, { 
+        method: 'POST',
+        body: c 
+      });
+      console.log(`${c.name} command installed`);
+    } catch (err) {
+      console.error('Error installing command: ', err);
+    }
+  }
+}
+
+// Pass in whatever commands you want to install
+installCommands(TEST_COMMAND, GAME_COMMAND);
