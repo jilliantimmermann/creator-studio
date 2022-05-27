@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import 'dotenv/config';
 
 import { DiscordRequest } from './utils.js';
 
@@ -7,7 +7,7 @@ import { DiscordRequest } from './utils.js';
 const TEST_COMMAND = {
   name: 'test',
   description: 'Just testing how commands work',
-  type: 1
+  type: 1,
 };
 
 // Options docs: https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure
@@ -20,10 +20,10 @@ const GAME_COMMAND = {
       name: 'character',
       value: 'character',
       description: 'Enter the name of your character',
-      required: 'true'
-    }
+      required: 'true',
+    },
   ],
-  type: 1
+  type: 1,
 };
 
 // ...commands is arbitrary # of commands https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
@@ -34,9 +34,9 @@ async function installCommands(...commands) {
   for (let c of commands) {
     // install command
     try {
-      await DiscordRequest(installCommandEndpoint, { 
+      await DiscordRequest(installCommandEndpoint, {
         method: 'POST',
-        body: c 
+        body: c,
       });
       console.log(`${c.name} command installed`);
     } catch (err) {

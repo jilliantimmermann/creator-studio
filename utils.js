@@ -3,7 +3,23 @@ import fetch from 'node-fetch';
 
 // Simple method that returns a random emoji from list
 export function getRandomEmoji() {
-  const emojiList = ['😭','😄','😌','🤓','😎','😤','🤖','😶‍🌫️','🌏','📸','💿','👋','🌊','✨', '👻'];
+  const emojiList = [
+    '😭',
+    '😄',
+    '😌',
+    '🤓',
+    '😎',
+    '😤',
+    '🤖',
+    '😶‍🌫️',
+    '🌏',
+    '📸',
+    '💿',
+    '👋',
+    '🌊',
+    '✨',
+    '👻',
+  ];
   return emojiList[Math.floor(Math.random() * emojiList.length)];
 }
 
@@ -24,9 +40,9 @@ export async function DiscordRequest(endpoint, options) {
   const res = await fetch(url, {
     headers: {
       Authorization: `Bot ${process.env.BOT_TOKEN}`,
-      'Content-Type': 'application/json; charset=UTF-8'
+      'Content-Type': 'application/json; charset=UTF-8',
     },
-    ...options
+    ...options,
   });
   // throw API errors
   if (!res.ok) {
