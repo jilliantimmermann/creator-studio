@@ -70,6 +70,7 @@ node app.js
 
 ## Helpful resources
 
+- [MDN JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Discord.js guide](https://discordjs.guide/#before-you-begin)
 - [Discord API documentation](https://discord.com/developers/docs/intro). The **Resources** sections have most of the API methods listed
 - [Discord.js documentation](https://discord.js.org/#/docs/main/stable/general/welcome)
